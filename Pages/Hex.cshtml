@@ -1,0 +1,19 @@
+﻿@page
+@model HexModel
+@{
+    ViewData["Title"] = "Hex Conversion";
+}
+<h2>@ViewData["Title"]</h2>
+<h3>@Model.Message</h3>
+
+<p>Use this area to provide additional information.</p>
+
+<form enctype="multipart/form-data" method="post">
+    <input asp-for="UploadFile" class="form-control" />
+    <input type="submit" class="btn btn-success" />
+</form>
+
+
+<table class="table table-condensed table-hover table-striped">
+    @Html.Raw(Model.HexTable)
+</table>
