@@ -2,11 +2,23 @@
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Http;
 using System.Text;
+using System.IO;
+using Microsoft.AspNetCore.Hosting;
+
 
 namespace myWebApp.Pages
 {
     public class HexModel : PageModel
     {
+
+        private readonly IHostingEnvironment _hostingEnvironment;
+
+        public HexModel(IHostingEnvironment hostingEnvironment)
+        {
+            _hostingEnvironment = hostingEnvironment;
+        }
+
+
         public string Message { get; set; }
 
         [Display(Name = "uploadFile")]
@@ -21,6 +33,9 @@ namespace myWebApp.Pages
 
         public void OnPost()
         {
+
+            
+
             //Title = Request.ReadFormAsync.File
             //Title = Request.Form["Title"];
             if (UploadFile != null)
@@ -36,6 +51,8 @@ namespace myWebApp.Pages
 
                         int hexIn;
 
+                        ms.Seek(5, SeekOrigin.Begin);
+                        //ms.SetLength(5 + 2);
                         for (int i = 0; (hexIn = ms.ReadByte()) != -1; i++)
                         {
                             if (i % 15 == 0) hex.Append("<tr>");

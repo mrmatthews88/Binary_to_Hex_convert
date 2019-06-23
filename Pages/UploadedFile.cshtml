@@ -1,0 +1,50 @@
+﻿@page "{_file}/{pageNum:int}"
+@model UploadedFileModel
+@{
+    ViewData["Title"] = "Uploaded File";
+}
+
+<h1 class="page-header text-center">@Model.file.Name</h1>
+
+
+<nav aria-label="Pages">
+    <ul class="pager">
+        <li class="previous">
+            <a href="@Model.basePath/@Model.paginator.Previous()"><span aria-hidden="true">&larr;</span> Previous</a>
+        </li>
+        <li>@Model.paginator.PageNumber / @Model.paginator.NumberOfPages()</li>
+        <li class="next">
+            <a href="@Model.basePath/@Model.paginator.Next()">Next<span aria-hidden="true">&rarr;</span></a>
+        </li>
+    </ul>
+</nav>
+<div class="progress">
+    <div class="progress-bar" role="progressbar" aria-valuenow="@Model.paginator.Progress()" aria-valuemin="0" aria-valuemax="100" style="width: @Model.paginator.Progress()%;">
+        <span class="sr-only">@Model.paginator.Progress()% Complete</span>
+    </div>
+</div>
+
+<form method="post">
+    <table class="table table-condensed table-striped table-hover">
+
+        @foreach (var line in Model.paginator.GetPage())
+        {
+            @if (line == null) { continue; }
+            <tr>
+                @foreach (var hex in line)
+                {
+                    <td>
+                        @if (hex != null)
+                        {
+                            <input class="form-control input-sm" asp-for="bytes" value="@hex" />
+                        }
+                    </td>
+                }
+            </tr>
+        }
+    </table>
+
+    <button type="submit" class="btn btn-success btn-block">Save changes</button>
+    <a href="~/uploads/@Model.file.Name" download class="btn btn-info btn-block">Download @Model.file.Name</a>
+</form>
+

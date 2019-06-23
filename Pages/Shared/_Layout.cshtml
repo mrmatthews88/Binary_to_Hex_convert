@@ -26,12 +26,12 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a asp-page="/Index" class="navbar-brand">myWebApp</a>
+                <a asp-page="/Index" class="navbar-brand">Hex Converter</a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a asp-page="/Index">Home</a></li>
-                    <li><a asp-page="/Hex">Hex Conversion</a></li>
+                    <li><a asp-page="/Index">Select File</a></li>
+                    @*<li><a asp-page="/Hex">Hex Conversion</a></li>*@
                     <!--<li><a asp-page="/Contact">Contact</a></li>-->
                 </ul>
             </div>
@@ -40,7 +40,7 @@
 
     <partial name="_CookieConsentPartial" />
 
-    <div class="container body-content">
+    <div class="container body-content" style="padding-top: 25px;">
         @RenderBody()
         <hr />
         <footer>

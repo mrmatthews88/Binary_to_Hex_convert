@@ -31,3 +31,4 @@ C:\Users\incen\myWebApp\obj\Debug\netcoreapp2.1\myWebApp.pdb
 C:\Users\incen\myWebApp\obj\Debug\netcoreapp2.1\myWebApp.csproj.CopyComplete
 C:\Users\incen\myWebApp\obj\Debug\netcoreapp2.1\Razor\Pages\Shared\_Layout2.g.cshtml.cs
 C:\Users\incen\myWebApp\obj\Debug\netcoreapp2.1\Razor\Pages\Hex.g.cshtml.cs
+C:\Users\incen\myWebApp\obj\Debug\netcoreapp2.1\Razor\Pages\UploadedFile.g.cshtml.cs
