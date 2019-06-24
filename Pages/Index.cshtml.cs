@@ -18,28 +18,10 @@ namespace myWebApp.Pages
         private readonly IHostingEnvironment env;
         public IndexModel(IHostingEnvironment _env) { env = _env; }
 
-        public IDirectoryContents files;
-
-        [Display(Name = "uploadFile")]
-        public IFormFile UploadFile { get; set; }
 
         public void OnGet()
         {
-            files = env.WebRootFileProvider.GetDirectoryContents("uploads");
         }
 
-        public void OnPost()
-        {
-            if (UploadFile != null)
-            {
-                string path = Path.Combine(env.WebRootPath, "uploads", UploadFile.FileName);
-
-                using (var fileStream = new FileStream(path, FileMode.Create))
-                {
-                    UploadFile.CopyToAsync(fileStream);
-                }
-                files = env.WebRootFileProvider.GetDirectoryContents("uploads");
-            }
-        }
     }
 }

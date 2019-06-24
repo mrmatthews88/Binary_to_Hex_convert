@@ -19,6 +19,7 @@ namespace myWebApp.Models
         int Offset() => (PageNumber - 1) * PageLength();
         int PageLimit() => Offset() + PageLength();
         public int NumberOfPages() => (byteArray.Length / PageLength()) +1;
+        public int LineNumber { get; set; }
 
         public void LoadFile(IFileInfo _file, int _pageNumber = 1)
         {
@@ -26,6 +27,7 @@ namespace myWebApp.Models
             byteArray = File.ReadAllBytes(_file.PhysicalPath);
             PageNumber = _pageNumber <= NumberOfPages() ?
                 _pageNumber : NumberOfPages();
+            LineNumber = Offset();
         }
 
         public string[][] GetPage()

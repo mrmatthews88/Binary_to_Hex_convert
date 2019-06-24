@@ -11,6 +11,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Update="Pages\Hex.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
     <Content Update="Pages\UploadedFile.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>

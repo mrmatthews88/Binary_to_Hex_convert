@@ -26,20 +26,43 @@
 
 <form method="post">
     <table class="table table-condensed table-striped table-hover">
-
+        <tr>
+            <th>&nbsp;</th>
+            @for (int i = 0; i < 16; i++)
+            {
+                <th class="text-center">@string.Format("{0:X2}", i)</th>
+            }
+            <th>&nbsp;</th>
+        </tr>
         @foreach (var line in Model.paginator.GetPage())
         {
             @if (line == null) { continue; }
+
             <tr>
+                <th>@string.Format("{0:X8}0", Model.paginator.LineNumber++)</th>
                 @foreach (var hex in line)
                 {
-                    <td>
+                    <td class="text-center">
                         @if (hex != null)
                         {
-                            <input class="form-control input-sm" asp-for="bytes" value="@hex" />
+                            <input size="2" pattern="[a-fA-F0-9]{2}" class="hex form-control input-sm" asp-for="bytes" value="@hex" />
+                        }
+                        else
+                        {
+                            <input size="2" class="hex form-control input-sm" readonly />
                         }
                     </td>
                 }
+
+                <td>
+                    @foreach (var hex in line)
+                    {
+                        @if (hex != null)
+                        {
+                            @Model.ToAscii(hex)
+                        }
+                    }
+                </td>
             </tr>
         }
     </table>
@@ -48,3 +71,9 @@
     <a href="~/uploads/@Model.file.Name" download class="btn btn-info btn-block">Download @Model.file.Name</a>
 </form>
 
+<style>
+    .hex {
+        text-transform: uppercase;
+        text-align: center;
+    }
+</style>

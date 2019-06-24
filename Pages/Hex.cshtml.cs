@@ -1,73 +1,45 @@
-﻿using Microsoft.AspNetCore.Mvc.RazorPages;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using Microsoft.AspNetCore.Http;
-using System.Text;
 using System.IO;
+using System.Linq;
+using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
-
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.Extensions.FileProviders;
 
 namespace myWebApp.Pages
 {
     public class HexModel : PageModel
     {
+        private readonly IHostingEnvironment env;
+        public HexModel(IHostingEnvironment _env) { env = _env; }
 
-        private readonly IHostingEnvironment _hostingEnvironment;
-
-        public HexModel(IHostingEnvironment hostingEnvironment)
-        {
-            _hostingEnvironment = hostingEnvironment;
-        }
-
-
-        public string Message { get; set; }
+        public IDirectoryContents files;
 
         [Display(Name = "uploadFile")]
         public IFormFile UploadFile { get; set; }
 
-        public string HexTable { get; set; }
-
         public void OnGet()
         {
-            Message = "Your application description page.";
+            files = env.WebRootFileProvider.GetDirectoryContents("uploads");
         }
 
         public void OnPost()
         {
-
-            
-
-            //Title = Request.ReadFormAsync.File
-            //Title = Request.Form["Title"];
             if (UploadFile != null)
             {
-                StringBuilder hex = new StringBuilder();
+                string path = Path.Combine(env.WebRootPath, "uploads", UploadFile.FileName);
 
-                if (UploadFile.Length > 0)
+                using (var fileStream = new FileStream(path, FileMode.Create))
                 {
-                    
-                    using (var ms = UploadFile.OpenReadStream())
-                    {
-                        //UploadFile.CopyTo(ms);
-
-                        int hexIn;
-
-                        ms.Seek(5, SeekOrigin.Begin);
-                        //ms.SetLength(5 + 2);
-                        for (int i = 0; (hexIn = ms.ReadByte()) != -1; i++)
-                        {
-                            if (i % 15 == 0) hex.Append("<tr>");
-                            hex.AppendFormat("<td>{0:X2}</td>", hexIn);
-                            if (i % 15 == 15) hex.Append("</tr>");
-                        }
-
-                    }
+                    UploadFile.CopyToAsync(fileStream);
                 }
-
-
-                HexTable = hex.ToString();
-
+                files = env.WebRootFileProvider.GetDirectoryContents("uploads");
             }
         }
-
     }
 }

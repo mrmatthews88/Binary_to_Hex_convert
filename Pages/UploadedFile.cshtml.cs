@@ -43,5 +43,10 @@ namespace myWebApp.Pages
             paginator.LoadFile(file, pageNum);
         }
 
+        public string ToAscii (string input)
+        {
+            return System.Convert.ToChar(System.Convert.ToUInt32(input, 16)).ToString();
+        }
+
     }
 }
