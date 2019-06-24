@@ -1,0 +1,53 @@
+﻿@page
+@model myWebApp.Pages.CalculatorModel
+@{
+    ViewData["Title"] = "Calculator";
+}
+
+
+
+<form method="post">
+    <div class="col-xs-6">
+        <input type="hidden" asp-for="Log" value="@Model.Log" />
+        <input type="hidden" asp-for="CurrentValue" value="@Model.CurrentValue" />
+        <input type="hidden" asp-for="CurrentAction" value="@Model.CurrentAction" />
+        <table>
+            <tr>
+                <td colspan="4"><input readonly class="form-control" asp-for="Output" value="@Model.Output" /></td>
+            </tr>
+            <tr>
+                <td><input class="btn btn-block btn-default btn-small" type="submit" asp-for="Input" value="7" /></td>
+                <td><input class="btn btn-block  btn-default btn-small" type="submit" asp-for="Input" value="8" /></td>
+                <td><input class="btn btn-block  btn-default btn-small" type="submit" asp-for="Input" value="9" /></td>
+                <td><input class="btn btn-block  btn-default btn-small" type="submit" asp-for="Action" value="/" /></td>
+            </tr>
+            <tr>
+                <td><input class="btn btn-block  btn-default btn-small" type="submit" asp-for="Input" value="4" /></td>
+                <td><input class="btn btn-block  btn-default btn-small" type="submit" asp-for="Input" value="5" /></td>
+                <td><input class="btn btn-block  btn-default btn-small" type="submit" asp-for="Input" value="6" /></td>
+                <td><input class="btn btn-block  btn-default btn-small" type="submit" asp-for="Action" value="*" /></td>
+            </tr>
+            <tr>
+                <td><input class="btn btn-block  btn-default btn-small" type="submit" asp-for="Input" value="1" /></td>
+                <td><input class="btn btn-block  btn-default btn-small" type="submit" asp-for="Input" value="2" /></td>
+                <td><input class="btn btn-block  btn-default btn-small" type="submit" asp-for="Input" value="3" /></td>
+                <td><input class="btn btn-block  btn-default btn-small" type="submit" asp-for="Action" value="-" /></td>
+            </tr>
+            <tr>
+                <td><input class="btn btn-block  btn-default btn-small" type="submit" asp-for="Input" value="0" /></td>
+                <td><input class="btn btn-block  btn-default btn-small" type="submit" asp-for="Input" value="." /></td>
+                <td><input class="btn btn-block  btn-default btn-small" type="submit" asp-for="Action" value="+" /></td>
+                <td><input class="btn btn-block  btn-default btn-small" type="submit" asp-for="Action" value="=" /></td>
+            </tr>
+            <tr>
+                <td colspan="4"><input class="btn btn-block btn-danger btn-small" type="submit" asp-for="Action" value="clear" /></td>
+            </tr>
+        </table>
+
+    </div>
+
+    <div class="col-xs-6">
+        <textarea readonly class="form-control" rows="20">@Model.Log</textarea>
+    </div>
+
+</form>
