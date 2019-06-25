@@ -157,7 +157,7 @@ WriteAttributeValue(" ", 806, Model.paginator.Progress(), 807, 27, false);
             WriteLiteral("% Complete</span>\r\n    </div>\r\n</div>\r\n\r\n");
             EndContext();
             BeginContext(938, 1640, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "14de0381ba2c46ef8afbc24490f45f40", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cd865748e4574bb2bf554ed61b0a1b77", async() => {
                 BeginContext(958, 114, true);
                 WriteLiteral("\r\n    <table class=\"table table-condensed table-striped table-hover\">\r\n        <tr>\r\n            <th>&nbsp;</th>\r\n");
                 EndContext();
@@ -232,7 +232,7 @@ WriteAttributeValue(" ", 806, Model.paginator.Progress(), 807, 27, false);
                 WriteLiteral("                            ");
                 EndContext();
                 BeginContext(1687, 106, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "8daea703ed4847f68ec3a07fb506737b", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "1ac17c848fd54b179e5fcac945cda11c", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.InputTagHelper>();
@@ -337,7 +337,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper.For = ModelExpressionProvid
                 WriteLiteral("    </table>\r\n\r\n    <button type=\"submit\" class=\"btn btn-success btn-block\">Save changes</button>\r\n    ");
                 EndContext();
                 BeginContext(2463, 106, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f52553ce4fca4b5e9fabd3cc975093a0", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3aed6601ea334588925fbf0bad6f0101", async() => {
                     BeginContext(2540, 9, true);
                     WriteLiteral("Download ");
                     EndContext();

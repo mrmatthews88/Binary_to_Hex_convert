@@ -14,6 +14,9 @@
     <Content Update="Pages\Hex.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
+    <Content Update="Pages\MessageBox\View.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
     <Content Update="Pages\UploadedFile.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>

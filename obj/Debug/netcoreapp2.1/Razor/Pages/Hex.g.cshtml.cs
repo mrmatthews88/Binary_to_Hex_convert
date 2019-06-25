@@ -108,12 +108,12 @@ WriteAttributeValue("", 526, file.Name, 526, 10, false);
             WriteLiteral("\r\n        </ul>\r\n    </div>\r\n</div>\r\n\r\n<div class=\"col-md-6\">\r\n    <div class=\"panel panel-info\">\r\n        <div class=\"panel-heading\">Upload</div>\r\n        <div class=\"panel-body\">\r\n            <p>Use this form to upload new files</p>\r\n            ");
             EndContext();
             BeginContext(824, 341, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "66faef810287437a8ba478876a6c7d19", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ccd598b82f9f41378f5ce77760c513db", async() => {
                 BeginContext(874, 62, true);
                 WriteLiteral("\r\n                <div class=\"col-xs-8\">\r\n                    ");
                 EndContext();
                 BeginContext(936, 51, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "6866fa5ed2194281a2a36b77dfa5aff7", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "135a0e64ede248b2a9e90cea5d2b26f7", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.InputTagHelper>();

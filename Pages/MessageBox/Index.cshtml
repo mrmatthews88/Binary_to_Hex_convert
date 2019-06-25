@@ -1,0 +1,42 @@
+﻿@page
+@model myWebApp.Pages.MessageBox.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+
+<div class="col-xs-6">
+
+    <div class="panel panel-primary">
+        <div class="panel-heading">Topics</div>
+        <div class="list-group">
+            @foreach (var item in Model.Topics)
+            {
+                <a href="./MessageBox/View/@item.ID" class="list-group-item">@item.Title</a>
+            }
+        </div>
+    </div>
+
+</div>
+<div class="col-xs-6">
+    <form method="post">
+        <div class="panel panel-default">
+            <div class="panel-heading">Add Topic</div>
+            <div class="panel-body">
+                <div class="col-xs-6">
+                    <input placeholder="Please Enter Topic Title" asp-for="Topic.Title" class="form-control" required />
+                </div>
+                <div class="col-xs-6">
+                    <input placeholder="Please Enter Topic Description" asp-for="Topic.Description" class="form-control" required />
+                </div>
+
+            </div>
+            <div class="panel-footer text-right">
+                <input type="submit" class="btn btn-success" value="Post" />
+            </div>
+        </div>
+    </form>
+</div>

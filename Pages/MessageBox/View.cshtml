@@ -1,0 +1,43 @@
+﻿@page "{TopicID:int}"
+@model myWebApp.Pages.MessageBox.ViewModel
+
+@{
+    ViewData["Title"] = "Replies";
+}
+
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h2>
+            <div class="col-xs-10">@Model.Topic.Title</div>
+            <div class="col-xs-2 text-right"><span class="badge">@Model.Topic.Replies.Count()</span></div>
+        </h2>
+        <h4>@Model.Topic.Description</h4>
+    </div>
+    <table class="table table-condensed table-hover table-striped table-bordered">
+        @foreach (var Reply in Model.Topic.Replies)
+        {
+            <tr>
+                <td>@Reply.Author</td>
+                <td>@Reply.Message</td>
+                <td>@Reply.MessageDate</td>
+            </tr>
+        }
+    </table>
+</div>
+
+<form method="post">
+    <div class="panel panel-default">
+        <div class="panel-heading">Add Reply</div>
+        <div class="panel-body">
+
+            <input type="hidden" asp-for="Reply.TopicID" value="@Model.Topic.ID" required />
+            <input placeholder="Please Enter Your Name Here" asp-for="Reply.Author" class="form-control" required />
+            <textarea style="margin-top:14px;" placeholder="Type Message Here" asp-for="Reply.Message" class="form-control" required rows="5"></textarea>
+
+        </div>
+        <div class="panel-footer text-right">
+            <input type="submit" class="btn btn-success" value="Post" />
+        </div>
+    </div>
+</form>
